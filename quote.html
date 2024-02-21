@@ -160,7 +160,8 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form action="https://formsubmit.co/ca8d0a8192187821661efc3eca8f2856" method="POST">
+                        <form id="quoteForm" action="" method="POST">
+                            <input type="hidden" name="_method" value="PUT"> <!-- Method override -->
                             <input type="hidden" name="_subject" value="New Query">
                             <input type="hidden" name="_template" value="table">
                             <div class="row g-3">
@@ -170,38 +171,46 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="contact">Your Contact</label>
-                                  <input type="tel" id="contact" name="contact" class="form-control bg-light border-0" placeholder="Your Contact (10 digits)" style="height: 55px;" required pattern="[0-9]{10}">
-                                  </div>
+                                    <input type="tel" id="contact" name="contact" class="form-control bg-light border-0" placeholder="Your Contact (10 digits)" style="height: 55px;" required pattern="[0-9]{10}">
                                 </div>
-                                <div class="col-12">
-                                    <label for="email">Your Email</label>
-                                    <input type="email" id="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="service">Select Service</label>
-                                    <select id="service" name="service" class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Helpdesk Support</option>
-                                        <option value="Hardware Sales and Support">Hardware Sales and Support</option>
-                                        <option value="Network Setup and Management">Network Setup and Management</option>
-                                        <option value="Web Development and Hosting">Web Development and Hosting</option>
-                                        <option value="IPBX and CCTV Installation">IPBX and CCTV Installation</option>
-                                        <option value="IOT and Internet Service">IOT and Internet Service</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
-                                </div>
-                                <input type="hidden" name="_captcha" value="false">
                             </div>
-                            <input type="hidden" name="_next" value="http://127.0.0.1:5500//thankyou.html">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-dark w-100 py-3">Request A Quote</button>
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" required>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-12">
+                                <label for="service">Select Service</label>
+                                <select id="service" name="service" class="form-select bg-light border-0" style="height: 55px;">
+                                    <option selected>Helpdesk Support</option>
+                                    <option value="Hardware Sales and Support">Hardware Sales and Support</option>
+                                    <option value="Network Setup and Management">Network Setup and Management</option>
+                                    <option value="Web Development and Hosting">Web Development and Hosting</option>
+                                    <option value="IPBX and CCTV Installation">IPBX and CCTV Installation</option>
+                                    <option value="IOT and Internet Service">IOT and Internet Service</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                            </div>
+                            <input type="hidden" name="_captcha" value="false">
+                        </div>
+                        <input type="hidden" name="_next" value="https://skywave.in/thankyou.html">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark w-100 py-3">Request A Quote</button>
+                        </div>
+                    </form>
                 </div>
                 </div>
+                
+                <script>
+                    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+                        e.preventDefault(); // Prevent the form from submitting normally
+                        setTimeout(function() {
+                            window.location.href = 'https://skywave.in/thankyou.html'; // Redirect to thankyou.html after 3 seconds
+                        }, 3000); // 3 seconds delay
+                    });
+                </script>
                     
                 
     <!-- Quote End -->
